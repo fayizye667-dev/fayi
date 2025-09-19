@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alkahaf Donor Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&family=Dancing+Script:wght@700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'teal': {
+                '50': '#f0fdfa', '100': '#ccfbf1', '200': '#99f6e4', '300': '#5eead4', '400': '#2dd4bf', '500': '#14b8a6', '600': '#0d9488', '700': '#0f766e', '800': '#115e59', '900': '#134e4a', '950': '#042f2e',
+              },
+              'gold': {
+                '50': '#fffbeb', '100': '#fef3c7', '200': '#fde68a', '300': '#fcd34d', '400': '#fbbf24', '500': '#f59e0b', '600': '#d97706', '700': '#b45309', '800': '#92400e', '900': '#78350f', '950': '#451a03',
+              },
+              charcoal: '#333333',
+              'light-gray': '#f5f5f5',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              urdu: ['Noto Nastaliq Urdu', 'serif'],
+              cursive: ['Dancing Script', 'cursive'],
+              serif: ['Merriweather', 'serif'],
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+      @media print {
+        @page {
+          size: A5;
+          margin: 0;
+        }
+
+        /* Hide everything by default when printing is active */
+        body.is-printing > *:not(#print-container) {
+            display: none !important;
+        }
+        
+        /* Reset body for printing */
+        body {
+            background-color: white !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* Ensure the print container is the only thing visible */
+        #print-container {
+            display: block !important;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 15mm;
+            -webkit-print-color-adjust: exact;
+            color-adjust: exact;
+        }
+        
+        #print-container .printable-receipt {
+            font-family: 'Merriweather', serif;
+            background-color: white !important;
+            color: black !important;
+            box-shadow: none !important;
+            border: 1px solid #ccc !important;
+            padding: 10mm;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Force all text inside the printable receipt to be black */
+        #print-container .printable-receipt * {
+            color: black !important;
+            background-color: transparent !important;
+        }
+        
+        /* Style specific elements for print */
+        #print-container .printable-receipt .print-logo {
+            max-width: 120px;
+            max-height: 80px;
+            object-fit: contain;
+        }
+
+        #print-container .printable-receipt .print-header {
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #print-container .printable-receipt .print-footer {
+            margin-top: auto; /* Push footer to the bottom */
+            padding-top: 1.5rem;
+            border-top: 2px solid #eee;
+            text-align: center;
+        }
+
+        #print-container .printable-receipt table th,
+        #print-container .printable-receipt table td {
+             border-color: #e5e7eb !important;
+        }
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "recharts": "https://aistudiocdn.com/recharts@^3.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.20.0"
+  }
+}
+</script>
+</head>
+  <body class="font-sans bg-light-gray dark:bg-gray-900">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
